@@ -31,7 +31,7 @@ namespace Clicker.Manager
         }
 
         //Update click count text UI
-        private void UpdateClickCountTxt(int clickCount)
+        private void UpdateClickCountTxt(float clickCount)
         {
             countText.text = $"Click count : {clickCount}";
         }

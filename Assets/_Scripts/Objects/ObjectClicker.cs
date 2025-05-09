@@ -19,7 +19,7 @@ namespace Clicker.Gameplay
         private void ClickItem()
         {
             //Add click count from GameManager
-            GameManager.Instance.AddClickCount(1);
+            GameManager.Instance.AddClickCount();
 
             //Invoke OnObjectClicked event for various purposes
             OnObjectClicked?.Invoke();
