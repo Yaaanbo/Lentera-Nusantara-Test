@@ -1,8 +1,8 @@
-using Clicker.ScriptableObjects;
+using Clicker.Manager;
 using MyBox;
 using UnityEngine;
 
-namespace Clicker.Manager
+namespace Clicker.ScriptableObjects
 {
     [CreateAssetMenu(fileName = "Click multiplier item", menuName = "Item SO/Click multiplier")]
     public class MultiplierSO : ItemSO
