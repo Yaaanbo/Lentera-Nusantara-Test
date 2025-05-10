@@ -25,9 +25,9 @@ namespace Clicker.Manager
         private void SetUpEvents(bool isSubscribing)
         {
             if (isSubscribing)
-                GameManager.Instance.OnClickCountIncreased += UpdateClickCountTxt;
+                GameManager.Instance.OnClickCountUIUpdated += UpdateClickCountTxt;
             else
-                GameManager.Instance.OnClickCountIncreased -= UpdateClickCountTxt;
+                GameManager.Instance.OnClickCountUIUpdated -= UpdateClickCountTxt;
         }
 
         //Update click count text UI

@@ -15,7 +15,8 @@ namespace Clicker.Manager
         public float ClickMultiplier => clickMultiplier;
 
         //Events
-        public Action<float> OnClickCountIncreased;
+        public Action<float> OnClickCountUIUpdated;
+        public Action OnClickCountIncreased;
 
         //Add total click count
         public void AddClickCount()
@@ -24,7 +25,8 @@ namespace Clicker.Manager
             clickCount += MathF.Round(1 * clickMultiplier);
 
             //Invoke OnClickCountIncreased events for various purposes
-            OnClickCountIncreased?.Invoke(clickCount);
+            OnClickCountIncreased?.Invoke();
+            OnClickCountUIUpdated?.Invoke(clickCount);
         }
 
         public void ActivateAutoClick(float delay)

@@ -24,12 +24,12 @@ namespace Clicker.ScriptableObjects
             bool isRawMultiplier = multiplierType == MultiplierType.rawMultiplier;
 
             //Add click multiplier from GameManager
-            GameManager.Instance.AddMultiplier(isRawMultiplier ? clickMultiplier : AddPercentageMultiplier(GameManager.Instance.ClickMultiplier));
+            GameManager.Instance.AddMultiplier(isRawMultiplier ? clickMultiplier : AddPercentageMultiplier());
         }
 
-        private float AddPercentageMultiplier(float baseMultiplier)
+        private float AddPercentageMultiplier()
         {
-            return baseMultiplier * clickPercentageMultiplier / 100;
+            return GameManager.Instance.ClickMultiplier * clickPercentageMultiplier / 100;
         }
     }
 
