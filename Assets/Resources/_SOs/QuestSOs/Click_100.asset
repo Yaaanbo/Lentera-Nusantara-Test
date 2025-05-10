@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9792d3fd35967a942bdbfb02f50ce1c3, type: 3}
   m_Name: Click_100
   m_EditorClassIdentifier: 
-  isActive: 1
+  questType: 0
+  isActive: 0
   questName: Your first 100!
   questDesc: Click the fish 100 times
   reward: 50
   questGoal:
-    questType: 0
     targetAmount: 100
     currentAmount: 0

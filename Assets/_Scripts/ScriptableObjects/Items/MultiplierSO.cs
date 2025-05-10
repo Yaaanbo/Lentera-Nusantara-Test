@@ -18,8 +18,6 @@ namespace Clicker.ScriptableObjects
 
         public override void UseItem()
         {
-            base.UseItem();
-
             //Check which multiplier to apply
             bool isRawMultiplier = multiplierType == MultiplierType.rawMultiplier;
 

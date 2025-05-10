@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Advanced Percentage Multiplier
   m_EditorClassIdentifier: 
   itemSprite: {fileID: 0}
-  itemName: Advanced Raw Multiplier
+  itemName: Advanced Percentage Multiplier
   itemDescription: Add 3 multiplier for every click
+  itemPrice: 5000
   multiplierType: 0
   clickMultiplier: 3
   clickPercentageMultiplier: 0

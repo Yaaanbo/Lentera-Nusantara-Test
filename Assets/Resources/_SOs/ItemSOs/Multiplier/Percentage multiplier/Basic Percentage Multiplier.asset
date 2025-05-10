@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Basic Percentage Multiplier
   m_EditorClassIdentifier: 
   itemSprite: {fileID: 0}
-  itemName: Basic Raw Multiplier
+  itemName: Basic Percentage Multiplier
   itemDescription: Add 1 multiplier for every click
+  itemPrice: 1500
   multiplierType: 0
   clickMultiplier: 1
   clickPercentageMultiplier: 0

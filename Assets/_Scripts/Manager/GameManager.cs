@@ -9,6 +9,7 @@ namespace Clicker.Manager
     {
         [Separator("General")]
         [SerializeField, ReadOnly] private float clickCount;
+        public float ClickCount => clickCount;
 
         [Separator("Click multipliers")]
         [SerializeField] private float clickMultiplier;
@@ -16,6 +17,7 @@ namespace Clicker.Manager
 
         //Events
         public Action<float> OnClickCountUIUpdated;
+        public Action<float> OnMultipliertUIUpdated;
         public Action OnClickCountIncreased;
 
         //Add total click count
@@ -26,6 +28,15 @@ namespace Clicker.Manager
 
             //Invoke OnClickCountIncreased events for various purposes
             OnClickCountIncreased?.Invoke();
+            OnClickCountUIUpdated?.Invoke(clickCount);
+        }
+
+        public void SubtractClickCount(float count)
+        {
+            //Subtract click count
+            clickCount -= count;
+
+            //Invoke OnClickCountIncreased events to update UI
             OnClickCountUIUpdated?.Invoke(clickCount);
         }
 
@@ -46,6 +57,7 @@ namespace Clicker.Manager
         public void AddMultiplier(float multiplier)
         {
             clickMultiplier += multiplier;
+            OnMultipliertUIUpdated?.Invoke(clickMultiplier);
         }
     }
 }

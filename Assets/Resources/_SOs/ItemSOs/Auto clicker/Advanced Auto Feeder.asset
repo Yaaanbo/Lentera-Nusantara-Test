@@ -15,4 +15,5 @@ MonoBehaviour:
   itemSprite: {fileID: 0}
   itemName: Advanced Auto Feeder
   itemDescription: Add 1 click count every 0.5 second
+  itemPrice: 150
   autoClickDelay: 0.5

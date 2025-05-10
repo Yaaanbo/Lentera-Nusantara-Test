@@ -1,12 +1,11 @@
 using Clicker.ScriptableObjects;
 using MyBox;
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace Clicker.Manager
 {
-    public class QuestManager : Utilities.Singleton<QuestManager>
+    public class QuestManager : MonoBehaviour
     {
         [Separator("All quests")]
         [SerializeField, ReadOnly] private List<QuestSO> activeQuestsList = new List<QuestSO>();
@@ -14,6 +13,7 @@ namespace Clicker.Manager
 
         private void Start()
         {
+            LoadAllQuestSO();
             GenerateQuest();
             SetUpEvents(true);
         }

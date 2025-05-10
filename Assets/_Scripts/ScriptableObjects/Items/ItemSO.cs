@@ -11,14 +11,12 @@ namespace Clicker.ScriptableObjects
         public Sprite itemSprite;
         public string itemName;
         [TextArea] public string itemDescription;
+        public float itemPrice;
 
         //Events when item is used (Can be used for future design updates)
         public Action OnItemUsed;
 
         //Handle item usage
-        public virtual void UseItem()
-        {
-            OnItemUsed?.Invoke();
-        }
+        public abstract void UseItem();
     }
 }

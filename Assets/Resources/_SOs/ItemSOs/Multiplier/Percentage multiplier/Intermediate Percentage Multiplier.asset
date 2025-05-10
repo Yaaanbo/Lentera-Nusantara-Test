@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Intermediate Percentage Multiplier
   m_EditorClassIdentifier: 
   itemSprite: {fileID: 0}
-  itemName: Intermediate Raw Multiplier
+  itemName: Intermediate Percentage Multiplier
   itemDescription: Add 2 multiplier for every click
+  itemPrice: 3000
   multiplierType: 0
   clickMultiplier: 2
   clickPercentageMultiplier: 0

@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9792d3fd35967a942bdbfb02f50ce1c3, type: 3}
   m_Name: Click_50
   m_EditorClassIdentifier: 
-  isActive: 1
+  questType: 0
+  isActive: 0
   questName: Get your 50
   questDesc: Click the fish 50 times
   reward: 25
   questGoal:
-    questType: 0
     targetAmount: 50
-    currentAmount: 0
+    currentAmount: 15

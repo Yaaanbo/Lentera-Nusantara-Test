@@ -15,6 +15,7 @@ MonoBehaviour:
   itemSprite: {fileID: 0}
   itemName: Advanced Raw Multiplier
   itemDescription: Add 3 multiplier for every click
+  itemPrice: 55000
   multiplierType: 0
   clickMultiplier: 3
   clickPercentageMultiplier: 0

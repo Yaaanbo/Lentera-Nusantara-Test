@@ -13,8 +13,6 @@ namespace Clicker.ScriptableObjects
 
         public override void UseItem()
         {
-            base.UseItem();
-
             //Add auto click rate in GameManager
             GameManager.Instance.ActivateAutoClick(autoClickDelay);
         }
