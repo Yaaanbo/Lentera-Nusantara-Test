@@ -1,3 +1,4 @@
+using Clicker.Manager;
 using MyBox;
 using System;
 using UnityEngine;
@@ -18,6 +19,9 @@ namespace Clicker.Gameplay
             {
                 currentAmount = 0f;
                 OnQuestComplete?.Invoke();
+
+                //Save player data
+                PlayfabManager.Instance.SavePlayerData();
             }
         }
         public bool IsReached() => currentAmount >= targetAmount;

@@ -31,6 +31,9 @@ namespace Clicker.Manager
                 GameManager.Instance.SubtractClickCount(itemSO.itemPrice);
 
             OnItemBought?.Invoke();
+
+            //Save player data
+            PlayfabManager.Instance.SavePlayerData();
         }
     }
 }

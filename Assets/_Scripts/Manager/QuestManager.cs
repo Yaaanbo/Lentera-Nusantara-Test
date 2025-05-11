@@ -120,6 +120,9 @@ namespace Clicker.Manager
                 activeQuestsList[i].StartQuest();
                 OnQuestRefreshed?.Invoke(activeQuestsList[i].questDesc, i);
             }
+
+            //Save player data
+            PlayfabManager.Instance.SavePlayerData();
         }
 
         private void SetUpIndexPool()

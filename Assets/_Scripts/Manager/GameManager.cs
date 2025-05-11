@@ -33,6 +33,9 @@ namespace Clicker.Manager
             //Invoke OnClickCountIncreased events for various purposes
             OnClickCountIncreased?.Invoke();
             OnClickCountUIUpdated?.Invoke(clickCount);
+
+            //Save player data
+            PlayfabManager.Instance.SavePlayerData();
         }
 
         public void SubtractClickCount(float count)
@@ -42,6 +45,9 @@ namespace Clicker.Manager
 
             //Invoke OnClickCountIncreased events to update UI
             OnClickCountUIUpdated?.Invoke(clickCount);
+
+            //Save player data
+            PlayfabManager.Instance.SavePlayerData();
         }
 
         public void SetClickCount(float count)
@@ -74,6 +80,9 @@ namespace Clicker.Manager
         {
             clickMultiplier += multiplier;
             OnMultipliertUIUpdated?.Invoke(clickMultiplier);
+
+            //Save player data
+            PlayfabManager.Instance.SavePlayerData();
         }
     }
 }
