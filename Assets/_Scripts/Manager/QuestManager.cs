@@ -1,6 +1,5 @@
 using Clicker.ScriptableObjects;
 using MyBox;
-using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +14,12 @@ namespace Clicker.Manager
         [SerializeField] private int maxActiveQuestCount = 3;
         private List<QuestSO> completedQuestList = new List<QuestSO>();
         private List<int> indexPool = new List<int>();
+
+        public List<QuestSO> ActiveQuestsList
+        {
+            get => activeQuestsList;
+            set => activeQuestsList = value;
+        }
 
         //UI Events
         public Action<string, int> OnQuestRefreshed;

@@ -13,7 +13,11 @@ namespace Clicker.Manager
 
         [Separator("Click multipliers")]
         [SerializeField] private float clickMultiplier;
-        public float ClickMultiplier => clickMultiplier;
+        public float ClickMultiplier
+        {
+            get => clickMultiplier;
+            set => clickMultiplier = value;
+        }
 
         //Events
         public Action<float> OnClickCountUIUpdated;
@@ -24,7 +28,7 @@ namespace Clicker.Manager
         public void AddClickCount()
         {
             //Add click count
-            clickCount += MathF.Round(1 * clickMultiplier);
+            clickCount += clickMultiplier;
 
             //Invoke OnClickCountIncreased events for various purposes
             OnClickCountIncreased?.Invoke();
@@ -40,6 +44,12 @@ namespace Clicker.Manager
             OnClickCountUIUpdated?.Invoke(clickCount);
         }
 
+        public void SetClickCount(float count)
+        {
+            clickCount = count;
+            OnClickCountUIUpdated?.Invoke(clickCount);
+        }
+        
         public void ActivateAutoClick(float delay)
         {
             StartCoroutine(AutoClickCoroutine(delay));
@@ -52,6 +62,12 @@ namespace Clicker.Manager
                     AddClickCount();
                 }
             }
+        }
+
+        public void SetClickMultiplier(float multiplier)
+        {
+            clickMultiplier = multiplier;
+            OnMultipliertUIUpdated?.Invoke(clickMultiplier);
         }
 
         public void AddMultiplier(float multiplier)

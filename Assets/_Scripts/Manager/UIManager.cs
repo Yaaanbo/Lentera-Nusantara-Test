@@ -121,7 +121,7 @@ namespace Clicker.Manager
                 {
                     if (GameManager.Instance.ClickCount < itemSO.itemPrice) return;
 
-                    ItemEffectManager.Instance.AddItemEffect(itemSO);
+                    ItemEffectManager.Instance.AddItemEffect(itemSO, true);
                     Debug.Log(itemSO.itemName);
 
                     SetActiveItemUI();
