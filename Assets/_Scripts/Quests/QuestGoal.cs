@@ -1,4 +1,5 @@
 using MyBox;
+using System;
 using UnityEngine;
 
 namespace Clicker.Gameplay
@@ -9,6 +10,16 @@ namespace Clicker.Gameplay
         public float targetAmount;
         [ReadOnly] public float currentAmount;
 
+        public void AddCurrentAmount(Action OnQuestComplete)
+        {
+            currentAmount++;
+
+            if(IsReached())
+            {
+                currentAmount = 0f;
+                OnQuestComplete?.Invoke();
+            }
+        }
         public bool IsReached() => currentAmount >= targetAmount;
     }
 }

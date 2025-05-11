@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questType: 1
   isActive: 0
-  questName: Get a good
+  questName: Second choice
   questDesc: Purchase 2 items from the shop
   reward: 10
   questGoal:
     targetAmount: 2
-    currentAmount: 0
+    currentAmount: 1

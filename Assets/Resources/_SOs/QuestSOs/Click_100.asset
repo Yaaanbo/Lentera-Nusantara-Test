@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Click_100
   m_EditorClassIdentifier: 
   questType: 0
-  isActive: 0
+  isActive: 1
   questName: Your first 100!
   questDesc: Click the fish 100 times
   reward: 50

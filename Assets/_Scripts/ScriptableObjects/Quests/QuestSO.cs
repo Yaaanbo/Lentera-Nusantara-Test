@@ -25,6 +25,8 @@ namespace Clicker.ScriptableObjects
             isActive = true;
             questGoal.currentAmount = 0;
         }
+
+        public void EndQuest() => isActive = false;
     }
 
     public enum QuestType

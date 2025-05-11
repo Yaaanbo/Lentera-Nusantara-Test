@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
 
 namespace Clicker.Manager
 {
@@ -22,6 +21,11 @@ namespace Clicker.Manager
         [Foldout("Active item UIs", true)]
         [SerializeField] private RectTransform activeItemUIPrefab;
         [SerializeField] private RectTransform activeItemUIParent;
+
+        [Foldout("Quest UIs", true)]
+        [SerializeField] private TMP_Text[] questTxts;
+        [SerializeField] private Color activeQuestTxtColor;
+        [SerializeField] private Color endedQuestTxtColor;
 
         void Start()
         {
@@ -49,13 +53,23 @@ namespace Clicker.Manager
         {
             if (isSubscribing)
             {
+                //Click count & multiplier text
                 GameManager.Instance.OnClickCountUIUpdated += UpdateClickCount;
                 GameManager.Instance.OnMultipliertUIUpdated += UpdateMultiplierTxt;
+
+                //Quest UI
+                QuestManager.Instance.OnQuestRefreshed += UpdateQuestListTxt;
+                QuestManager.Instance.OnQuestComplete += OnQuestCompleted;
             }
             else
             {
+                //Click count & multiplier text
                 GameManager.Instance.OnClickCountUIUpdated -= UpdateClickCount;
                 GameManager.Instance.OnMultipliertUIUpdated -= UpdateMultiplierTxt;
+
+                //Quest UI
+                QuestManager.Instance.OnQuestRefreshed -= UpdateQuestListTxt;
+                QuestManager.Instance.OnQuestComplete -= OnQuestCompleted;
             }
         }
 
@@ -144,6 +158,19 @@ namespace Clicker.Manager
             int lastIndex = activeItemList.Count - 1;
             if (activeItemList[lastIndex].itemSprite != null)
                 itemImg.sprite = activeItemList[lastIndex].itemSprite;
+        }
+        #endregion
+
+        #region Quest UIs
+        private void UpdateQuestListTxt(string questDesc, int index)
+        {
+            questTxts[index].text = questDesc;
+            questTxts[index].color = activeQuestTxtColor;
+        }
+
+        private void OnQuestCompleted(int index)
+        {
+            questTxts[index].color = endedQuestTxtColor;
         }
         #endregion
     }

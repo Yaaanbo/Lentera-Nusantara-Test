@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Click_50
   m_EditorClassIdentifier: 
   questType: 0
-  isActive: 0
+  isActive: 1
   questName: Get your 50
   questDesc: Click the fish 50 times
   reward: 25
   questGoal:
     targetAmount: 50
-    currentAmount: 15
+    currentAmount: 0
