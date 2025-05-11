@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Click_50
   m_EditorClassIdentifier: 
   questType: 0
-  isActive: 1
+  isActive: 0
   questName: Get your 50
   questDesc: Click the fish 50 times
   reward: 25

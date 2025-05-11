@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Purchase_1
   m_EditorClassIdentifier: 
   questType: 1
-  isActive: 0
+  isActive: 1
   questName: Get a good
-  questDesc: Purchase your first item from shop
+  questDesc: Purchase 1 item from shop
   reward: 10
   questGoal:
     targetAmount: 1

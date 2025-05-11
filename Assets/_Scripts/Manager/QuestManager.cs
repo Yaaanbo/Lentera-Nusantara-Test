@@ -1,5 +1,6 @@
 using Clicker.ScriptableObjects;
 using MyBox;
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,8 @@ namespace Clicker.Manager
         [SerializeField, ReadOnly] private List<QuestSO> activeQuestsList = new List<QuestSO>();
         [SerializeField, ReadOnly] private QuestSO[] allQuestSO;
         [SerializeField] private int maxActiveQuestCount = 3;
+        private List<QuestSO> completedQuestList = new List<QuestSO>();
+        private List<int> indexPool = new List<int>();
 
         //UI Events
         public Action<string, int> OnQuestRefreshed;
@@ -19,6 +22,9 @@ namespace Clicker.Manager
 
         private void Start()
         {
+            InitializeQuests();
+            SetUpIndexPool();
+
             SetUpEvents(true);
         }
 
@@ -72,12 +78,11 @@ namespace Clicker.Manager
                     quest.isActive = false;
                     OnQuestComplete?.Invoke(activeQuestsList.FindIndex(x => x == quest));
 
-                    List<QuestSO> completeQuestCount = activeQuestsList.FindAll(y => y == y.questGoal.IsReached());
-                    Debug.Log("Completed Quest Count : " + completeQuestCount.Count);
-                    if(completeQuestCount.Count >= 3)
+                    completedQuestList.Add(quest);
+                    if(completedQuestList.Count >= 3)
                     {
                         RenewAllQuest();
-                        completeQuestCount.Clear();
+                        completedQuestList.Clear();
                     }
                 });
             }
@@ -96,10 +101,35 @@ namespace Clicker.Manager
 
             for (int i = 0; i < maxActiveQuestCount; i++)
             {
-                int randomQuestIdx = UnityEngine.Random.Range(0, allQuestSO.Length);
-                activeQuestsList.Add(allQuestSO[randomQuestIdx]);
+                int randomIndex = UnityEngine.Random.Range(0, indexPool.Count);
+                int chosenIndex = indexPool[randomIndex];
+                activeQuestsList.Add(allQuestSO[chosenIndex]);
+                indexPool.RemoveAt(chosenIndex);
+
+                if(indexPool.Count <= 3)
+                {
+                    indexPool.Clear();
+                    SetUpIndexPool();
+                }
+
                 activeQuestsList[i].StartQuest();
                 OnQuestRefreshed?.Invoke(activeQuestsList[i].questDesc, i);
+            }
+        }
+
+        private void SetUpIndexPool()
+        {
+            for (int i = 0; i < allQuestSO.Length; i++)
+            {
+                indexPool.Add(i);
+            }
+        }
+
+        private void InitializeQuests()
+        {
+            foreach (var quest in activeQuestsList)
+            {
+                quest.isActive = true;
             }
         }
 

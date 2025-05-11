@@ -19,4 +19,4 @@ MonoBehaviour:
   reward: 50
   questGoal:
     targetAmount: 100
-    currentAmount: 0
+    currentAmount: 37
